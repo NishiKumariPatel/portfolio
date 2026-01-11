@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nishi Kumari | AI & ML Developer | AWS Specialist</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --dark-clr: #081a28;
+      --card-bg: #11283c;
+      --text-clr: #eafaff;
+      --light-text: #a0d0e8;
+      --accent: #00e0ff;
+      --btn-pink: #ff4da6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--dark-clr);
+      color: var(--text-clr);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    section { padding: 80px 10%; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h2 {
+      font-size: 2.6rem;
+      margin-bottom: 2rem;
+      color: var(--accent);
+    }
+    .highlight { color: var(--accent); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(8, 26, 40, 0.95);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10%;
+    }
+    .logo {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: white;
+    }
+    .logo span { color: var(--accent); }
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 1.4rem;
+    }
+    .navbar a,
+    .cvbtn {
+      opacity: 0;
+      animation: slideIn 1s forwards;
+      animation-delay: calc(0.15s * var(--i));
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .navbar a:hover { color: var(--accent); }
+    .cvbtn {
+      background: var(--btn-pink);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Hero */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 80px;
+    }
+    .hero-content {
+      max-width: 600px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+    .hero-image {
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: 0.6s;
+    }
+    .hero-content h1 { font-size: 3.2rem; margin: 0.4rem 0; }
+    .hero-content h2 { font-size: 1.9rem; color: var(--accent); margin-bottom: 1.2rem; }
+    .hero-content p { font-size: 1.1rem; color: var(--light-text); margin-bottom: 1.5rem; }
+    .hero-image img {
+      width: 420px;
+      border-radius: 12px;
+      filter: drop-shadow(0 0 30px rgba(0, 224, 255, 0.4));
+    }
+     .social-icons {
+      display: flex;
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+    .social-icon {
+      font-size: 1.6rem;
+      color: white;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-icon:hover {
+      color: var(--global-clr);
+      transform: translateY(-4px);
+    }
+    .btn {
+      padding: 10px 26px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .content-section {
+      background: rgba(17, 46, 66, 0.35);
+      border-radius: 20px;
+      padding: 50px 5%;
+      margin: 40px auto;
+      max-width: 1200px;
+    }
+    @media (min-width: 992px) {
+      .content-section { padding: 50px 10%; }
+    }
+
+    .profile-img-a {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--global-clr);
+      box-shadow: 0 0 25px rgba(0, 224, 255, 0.4);
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 0.9rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      margin: 0.25rem;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 5px 15px rgba(0, 224, 255, 0.4);
+    }
+    .btn-primary:hover {
+      background: #00c4e0;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 224, 255, 0.6);
+    }
+    .btn-outline {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-outline:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* Animated Sections */
+    .section {
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: calc(0.8s + (var(--section-delay, 0) * 0.2s));
+    }
+
+    /* Skills */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .skill-tag {
+      background: var(--card-bg);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+      animation-delay: calc(0.1s * var(--i));
+    }
+
+    /* Project Card */
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.8rem;
+      height: 100%;
+      transition: transform 0.3s, border 0.3s;
+      border: 2px solid transparent;
+      opacity: 0;
+      animation: fadeInUp 0.9s ease-out forwards;
+      animation-delay: calc(0.2s * var(--i));
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-8px);
+    }
+    .project-title {
+      font-size: 1.4rem;
+      margin: 0.8rem 0;
+      color: white;
+    }
+    .project-desc {
+      color: var(--light-text);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    /* Certifications */
+    .cert-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .cert-badge {
+      width: 200px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: calc(0.2s * var(--i));
+    }
+    .cert-badge:hover {
+      transform: scale(1.05);
+    }
+
+    /* Connect */
+    /* Contact Form */
+    #contact-section form {
+      background: rgba(17, 46, 66, 0.4);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    @media (min-width: 768px) {
+      #contact-section form { padding: 2.5rem; }
+    }
+    .form-control,
+    .form-select {
+      background: rgba(30, 60, 80, 0.7) !important;
+      border: 1px solid #335577 !important;
+      color: white !important;
+      padding: 0.75rem 1rem;
+    }
+    .form-control::placeholder {
+      color: #8899aa !important;
+    }
+
+    .connect-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+    .connect-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: white;
+      transition: all 0.3s;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: calc(0.15s * var(--i));
+    }
+    .connect-icon:hover {
+      background: var(--accent);
+      color: #000;
+      transform: translateY(-5px);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(5, 15, 25, 0.9);
+      padding: 2rem 10%;
+      text-align: center;
+      color: var(--light-text);
+      font-size: 1rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: 2.5s;
+    }
+    .footer-links {
+      margin: 1rem 0;
+    }
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      #home { flex-direction: column; text-align: center; gap: 3rem; }
+      .hero-content { max-width: 100%; }
+      .hero-image img { width: 320px; }
+      .navbar ul { display: none; }
+      .section { padding: 60px 5%; }
+    }
+    @media (max-width: 576px) {
+      h2 { font-size: 2.2rem; }
+      .hero-content h1 { font-size: 2.6rem; }
+      .btn { width: 100%; margin-bottom: 0.5rem; }
+      .project-links { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="#home" class="logo">N<span>K</span></a>
+      <ul>
+        <li style="--i:1"><a href="#home">Home</a></li>
+        <li style="--i:2"><a href="#about">About</a></li>
+        <li style="--i:3"><a href="#skills">Skills</a></li>
+        <li style="--i:4"><a href="#projects">Projects</a></li>
+        <li style="--i:5"><a href="#certifications">Certifications</a></li>
+        <li style="--i:6"><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="./resume/Nishi_Kumari_Resume.pdf" class="cvbtn" style="--i:7">
+        <i class="fas fa-download"></i> Resume
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home">
+    <div class="hero-content">
+      <h3>Hello, I'm</h3>
+      <h1>Nishi Kumari</h1>
+      <h2>AI & ML Developer | AWS Specialist</h2>
+      <p>
+        Building intelligent, serverless applications using Python, AWS, and machine learning.
+        Passionate about solving real-world problems with data-driven innovation.
+      </p>
+      <div>
+        <div class="social-icons" style="--i: 5;">
+        <a href="https://github.com/nishikumaripatel" target="_blank" class="social-icon">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/nishi-kumari-184704277" target="_blank" class="social-icon">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://x.com/nishikumari" target="_blank" class="social-icon">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+      </div>
+        <a href="#contact" class="btn btn-primary">
+          <!--<i class="fas fa-download me-2"></i>--> Connect
+        </a>
+        <a href="#projects" class="btn btn-outline">View Projects</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="./images/nishi.png" alt="Nishi Kumari" />
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="content-section" style="--section-delay: 1;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 text-center mb-4 mb-lg-0">
+          <img src="./images/nishi4.png" alt="Nishi Kumari" class="profile-img-a" />
+        </div>
+        <div class="col-lg-7">
+          <h2>About <span class="highlight">Me</span></h2>
+          <p>
+            My interests lie in building intelligent systems, applying machine learning models to real-world problems, and continuously advancing my technical expertise.
+          </p>
+          <p>
+            I believe in blending creativity with analytical thinking to develop impactful solutions. With a strong drive for continuous learning and collaboration, I aim to contribute to projects that push innovation forward while growing as a technology professional.
+          </p>
+          <div class="mt-3">
+            <h4>Top Skills</h4>
+            <div class="mt-2">
+              <span class="badge">Amazon Web Services (AWS)</span>
+              <span class="badge">Amazon S3</span>
+              <span class="badge">Serverless Computing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section" style="--section-delay: 2;">
+    <div class="container">
+      <h2>Technical <span class="highlight">Skills</span></h2>
+      <div class="skills-container">
+        <div class="skill-tag" style="--i:1">Python</div>
+        <div class="skill-tag" style="--i:2">Java</div>
+        <div class="skill-tag" style="--i:3">Amazon Web Services (AWS)</div>
+        <div class="skill-tag" style="--i:4">Amazon S3</div>
+        <div class="skill-tag" style="--i:5">Serverless Computing</div>
+        <div class="skill-tag" style="--i:6">Lambda</div>
+        <div class="skill-tag" style="--i:7">API Gateway</div>
+        <div class="skill-tag" style="--i:8">Machine Learning</div>
+        <div class="skill-tag" style="--i:9">Google Analytics 4 (GA4)</div>
+        <div class="skill-tag" style="--i:10">Git & GitHub</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section" style="--section-delay: 3;">
+    <div class="container">
+      <h2>Featured <span class="highlight">Projects</span></h2>
+      <div class="row g-4">
+        <div class="col-lg-6 col-md-12">
+          <div class="project-card" style="--i:1">
+            <div class="project-title">Serverless Document Processor</div>
+            <p class="project-desc">
+              A fully serverless app using AWS S3, Lambda, and DynamoDB. Users upload PDFs to S3, which triggers a Lambda function to extract metadata and store it. Built with Python (Boto3).
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/nishikumari-dev/serverless-doc-processor" target="_blank" class="btn btn-outline">GitHub</a>
+              <a href="#" class="btn btn-primary">Architecture Diagram</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="project-card" style="--i:1">
+            <div class="project-title">Serverless Document Processor</div>
+            <p class="project-desc">
+              A fully serverless app using AWS S3, Lambda, and DynamoDB. Users upload PDFs to S3, which triggers a Lambda function to extract metadata and store it. Built with Python (Boto3).
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/nishikumari-dev/serverless-doc-processor" target="_blank" class="btn btn-outline">GitHub</a>
+              <a href="#" class="btn btn-primary">Architecture Diagram</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="project-card" style="--i:2">
+            <div class="project-title">GA4 Data Pipeline to AWS</div>
+            <p class="project-desc">
+              Automated export of Google Analytics 4 data to AWS S3 using BigQuery and Python scripts. Enables custom dashboards in QuickSight or Power BI.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/nishikumari-dev/ga4-to-aws-pipeline" target="_blank" class="btn btn-outline">GitHub</a>
+              <a href="#" class="btn btn-primary">Report</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="project-card" style="--i:3">
+            <div class="project-title">AI-Powered Attendance System</div>
+            <p class="project-desc">
+              Facial recognition system using OpenCV and Python to automate attendance in classrooms. Includes data logging and basic analytics dashboard.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/nishikumari-dev/ai-attendance-system" target="_blank" class="btn btn-outline">GitHub</a>
+              <a href="#" class="btn btn-primary">Demo Video</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="section" style="--section-delay: 4;">
+    <div class "container">
+      <h2>My <span class="highlight">Certifications</span></h2>
+      <p class="text-center" style="color: var(--light-text); max-width: 700px; margin: 0 auto 2rem;">
+        Verified credentials showcasing my expertise in cloud and analytics.
+      </p>
+      <div class="cert-container">
+        <a href="https://www.udemy.com/certificate/UC-c47a49b8-cb87-44ca-baa9-ed320a46462c/" target="_blank">
+          <img src="./images/aws-serverless-cert.jpg" alt="AWS Serverless Certification" class="cert-badge" style="--i:1" />
+        </a>
+        <a href="https://www.udemy.com/certificate/UC-c47a49b8-cb87-44ca-baa9-ed320a46462c/" target="_blank">
+          <img src="./images/ga4-cert.jpg" alt="Google Analytics 4 Certification" class="cert-badge" style="--i:2" />
+        </a>
+      </div>
+      <p class="text-center mt-4" style="color: var(--light-text);">
+        🔍 Click on badges to verify credentials
+      </p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section" style="--section-delay: 5;">
+    <div class="container">
+      <h2>Education</h2>
+      <div style="max-width: 700px; margin: 0 auto;">
+        <div style="margin-bottom: 2.5rem; padding-left: 1.5rem; border-left: 3px solid var(--accent);">
+          <h4>B.Tech in CSE (AI & ML)</h4>
+          <p><strong>Bengal Institute Of Technology</strong><br/>June 2022 – July 2027</p>
+        </div>
+        <div style="padding-left: 1.5rem; border-left: 3px solid var(--accent);">
+          <h4>Diploma in Computer Science</h4>
+          <p><strong>Government Women's Polytechnic, Muzaffarpur</strong><br/>Dec 2021 – May 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section" style="--section-delay: 6;">
+    <div class="container text-center">
+      <h2>Connect <span class="highlight">With Me</span></h2>
+      <p style="color: var(--light-text); max-width: 600px; margin: 0 auto 2rem;">
+        Open to internships, collaborations, and full-time opportunities in AI, ML, and cloud engineering.
+      </p>
+       <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+              </div>
+              <div class="col-md-6">
+                <input type="email" name="email" class="form-control" placeholder="Email Address" required />
+              </div>
+              <div class="col-12">
+                <textarea name="message" class="form-control" rows="4" 
+                  placeholder="Tell me about your opportunity..." required></textarea>
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary px-4 py-2">
+                  <i class="fas fa-paper-plane me-2"></i>Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="connect-icons">
+        <a href="https://github.com/nishikumari-dev" target="_blank" class="connect-icon" style="--i:1">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/nishi-kumari-184704277" target="_blank" class="connect-icon" style="--i:2">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:nishikumari82414300@gmail.com" class="connect-icon" style="--i:3">
+          <i class="fas fa-envelope"></i>
+        <a href="https://x.com/nishikumari" target="_blank" class="connect-icon">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        </a>
+      </div>
+      
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#home">Home</a> •
+      <a href="#about">About</a> •
+      <a href="#skills">Skills</a> •
+      <a href="#projects">Projects</a>
+    </div>
+    <p>© 2026 Nishi Kumari. All rights reserved.</p>
+    <p>Made with <i class="fas fa-heart" style="color: #ff4da6;"></i> from Kolkata, India</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
